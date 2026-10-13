@@ -4,36 +4,34 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="SHEC3R: robot-grounded neural initialization for stationary eye-to-hand calibration, with RoboEyeCalib and optional differentiable-rendering refinement.">
-  <meta name="theme-color" content="#fdfdfc">
+  <meta name="theme-color" content="#ffffff">
   <meta property="og:title" content="SHEC3R — Stationary Eye-to-Hand Calibration">
   <meta property="og:description" content="Grounding visual geometry in the robot base frame. A robot-grounded neural initializer and the RoboEyeCalib benchmark.">
   <meta property="og:type" content="website">
   <title>SHEC3R | Stationary Eye-to-Hand Calibration</title>
-  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="assets/images/favicon.svg?v=20261013b" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20261013b">
   <script defer src="script.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
-    <a class="wordmark" href="#">SHEC<span>3R</span></a>
+    <a class="wordmark" href="#">SHEC3R</a>
     <nav aria-label="Main navigation">
-      <a href="#overview">Overview</a><a href="#method">Method</a><a href="#results">Results</a><a href="#dataset">Dataset</a><a href="#resources">Resources</a>
+      <a href="#overview">Overview</a><a href="#method">Method</a><a href="#results">Results</a><a href="#dataset">Dataset</a><a href="#citation-section">Citation</a>
     </nav>
   </header>
   <main id="main">
     <section class="hero container">
-      <p class="eyebrow">Stationary eye-to-hand calibration</p>
-      <h1><span class="project-name">SHEC<span>3R</span></span><span class="paper-title">A Robot-Grounded Neural Initializer for<br class="desktop-break"> Stationary Eye-to-Hand Calibration</span></h1>
+      <h1><span class="project-name">SHEC3R</span><span class="paper-title">A Robot-Grounded Neural Initializer for<br class="desktop-break"> Stationary Eye-to-Hand Calibration</span></h1>
       <p class="authors">Anonymous</p>
       <p class="submission-status">Manuscript under review · Submitted to ICRA 2027</p>
-      <p class="hero-summary">Grounding visual geometry<br>in the <em>robot base frame.</em></p>
       <p class="hero-description">From RGB observations and robot masks to a shared camera–base transform and a dense 3D reconstruction, in a single forward pass.</p>
       <div class="resource-links" aria-label="Project resources">
-        <a class="pill primary" href="assets/papers/SHEC3R.pdf" target="_blank" rel="noopener">Paper PDF <span aria-hidden="true">↗</span></a>
-        <a class="pill" href="#video">Watch video <span aria-hidden="true">▶</span></a>
+        <a class="pill primary" href="assets/papers/SHEC3R.pdf" target="_blank" rel="noopener">Paper PDF</a>
+        <a class="pill" href="#video">Video</a>
         <span class="pill pending" id="arxiv-link" aria-label="arXiv preprint pending">arXiv <small>pending</small></span>
-        <span class="pill pending" id="code-link" aria-label="Research code release forthcoming">Code <small>forthcoming</small></span>
+        <span class="pill pending" id="code-link" aria-label="Code Coming Soon">Code <small>Coming Soon</small></span>
       </div>
       <figure class="hero-figure">
         <img src="assets/images/real-reconstruction.png" alt="Real-world RGB observations and reconstructed point clouds for several robot arms." fetchpriority="high">
@@ -48,7 +46,7 @@
     </section>
 
     <section class="section container overview" id="overview">
-      <div class="section-heading"><p class="eyebrow">01 / Overview</p><h2>A better starting point<br>for calibration.</h2></div>
+      <div class="section-heading"><h2>Overview</h2></div>
       <div class="prose">
         <p>Stationary eye-to-hand calibration estimates the rigid transform between a fixed camera and the robot base. Silhouette-based differentiable rendering can be highly accurate, but its non-convex objective makes the starting estimate critical.</p>
         <p><strong>SHEC3R learns that starting estimate.</strong> Robot-grounded prompts condition a pretrained visual-geometry backbone on the base location, projected base-axis directions, and the visible arm configuration. Cross-frame attention combines evidence from multiple observations into a shared calibration.</p>
@@ -58,7 +56,7 @@
 
     <section class="section video-section" id="video">
       <div class="container">
-        <div class="section-heading"><p class="eyebrow">Project video</p><h2>See SHEC3R in action.</h2><p class="section-intro">The accompanying video introduces the problem, method, benchmark, and experimental results.</p></div>
+        <div class="section-heading"><h2>Video</h2></div>
         <video controls playsinline preload="metadata" poster="assets/images/video-poster-arxiv.jpg" aria-label="SHEC3R project presentation video">
           <source src="assets/videos/SHEC3R_video_v4_arxiv.mp4" type="video/mp4">
           Your browser does not support embedded video. <a href="assets/videos/SHEC3R_video_v4_arxiv.mp4">Download the video</a>.
@@ -68,22 +66,22 @@
     </section>
 
     <section class="section container" id="method">
-      <div class="section-heading"><p class="eyebrow">02 / Method</p><h2>Let the robot ground the geometry.</h2><p class="section-intro">Three complementary prompts connect a visual-geometry prior to the robot base frame.</p></div>
+      <div class="section-heading"><h2>Method</h2><p class="section-intro">Three complementary prompts connect a visual-geometry prior to the robot base frame.</p></div>
       <figure class="paper-figure">
         <a href="assets/images/pipeline.png" target="_blank" rel="noopener" aria-label="Open the full-resolution SHEC3R pipeline figure"><img src="assets/images/pipeline.png" alt="SHEC3R pipeline: RGB and mask inputs feed robot-grounded prompts and a pretrained backbone, producing a base-to-camera pose and robot-frame point cloud, followed by optional differentiable-rendering refinement." loading="lazy"></a>
         <figcaption>RGB observations + robot masks → robot-grounded calibration prompts → shared base-to-camera pose and robot-frame point cloud. Click the figure to enlarge.</figcaption>
       </figure>
       <div class="method-steps">
-        <article><span class="step-number">01</span><h3>Locate the base</h3><p>A base-location prompt captures where the robot base appears in the image.</p></article>
-        <article><span class="step-number">02</span><h3>Resolve orientation</h3><p>Projected base-axis directions provide cues for the orientation of the robot frame.</p></article>
-        <article><span class="step-number">03</span><h3>Read the configuration</h3><p>Mask-guided arm prompts gather evidence from the visible robot across observations.</p></article>
+        <article><h3>Base location</h3><p>A base-location prompt captures where the robot base appears in the image.</p></article>
+        <article><h3>Axis orientation</h3><p>Projected base-axis directions provide cues for the orientation of the robot frame.</p></article>
+        <article><h3>Arm configuration</h3><p>Mask-guided arm prompts gather evidence from the visible robot across observations.</p></article>
       </div>
       <div class="method-note"><strong>Initialization and refinement have different requirements.</strong><p>The neural initializer uses RGB + masks; metric scale uses one depth frame. Optional DR refinement additionally uses URDF meshes and joint readings.</p></div>
     </section>
 
     <section class="section results-section" id="results">
       <div class="container">
-        <div class="section-heading"><p class="eyebrow">03 / Results</p><h2>Same refinement.<br>A more reliable initialization.</h2><p class="section-intro">Fix the evaluation scenes and the differentiable-rendering stage; change only the initializer.</p></div>
+        <div class="section-heading"><h2>Results</h2><p class="section-intro">Evaluation on the same scenes with a shared differentiable-rendering stage, varying only the initializer.</p></div>
         <div class="table-scroll" tabindex="0" role="region" aria-label="Calibration results; scroll horizontally on small screens">
           <table>
             <caption>Final rotation success rate and median rotation error after the shared refinement stage.</caption>
@@ -104,24 +102,20 @@
     </section>
 
     <section class="section container" id="dataset">
-      <div class="section-heading"><p class="eyebrow">04 / RoboEyeCalib</p><h2>A benchmark built for<br>stationary eye-to-hand calibration.</h2><p class="section-intro">Synthetic and real-world data across camera layouts, scenes, and robot morphologies.</p></div>
+      <div class="section-heading"><h2>RoboEyeCalib Dataset</h2><p class="section-intro">Synthetic and real-world data across camera layouts, scenes, and robot morphologies.</p></div>
       <div class="dataset-stats"><div><strong>2.83M</strong><span>Synthetic frames</span></div><div><strong>4</strong><span>Simulated arms</span></div><div><strong>883</strong><span>Real scenes</span></div><div><strong>5</strong><span>Physical arms</span></div></div>
       <figure class="paper-figure"><a href="assets/images/dataset.png" target="_blank" rel="noopener" aria-label="Open the RoboEyeCalib dataset figure"><img src="assets/images/dataset.png" alt="RoboEyeCalib examples showing synthetic and real robot observations, depth, and 3D geometry across environments." loading="lazy"></a><figcaption>RoboEyeCalib spans simulation and physical capture. Camera–base layouts are held out for evaluation.</figcaption></figure>
       <div class="dataset-description"><p><strong>Simulation.</strong> Franka Panda, xArm6, SO-100, and WidowX-AI, across eight scene types.</p><p><strong>Physical capture.</strong> Franka, AIRBOT Play, SO-101, OpenManipulatorX, and UR5e, across nine environments.</p></div>
-      <p class="release-note">Dataset release forthcoming.</p>
     </section>
 
-    <section class="section resources-section" id="resources">
-      <div class="container resource-layout">
-        <div class="section-heading"><p class="eyebrow">05 / Resources</p><h2>Read the paper.<br>Explore the work.</h2><p class="section-intro">The current PDF is an anonymous manuscript. Author information and the arXiv link will be updated with the public preprint.</p><div class="resource-links"><a class="pill primary" href="assets/papers/SHEC3R.pdf" target="_blank" rel="noopener">Read manuscript ↗</a><a class="pill" href="https://github.com/SherlockZhang666/SHEC3R-project-page" target="_blank" rel="noopener">Website source ↗</a></div></div>
-        <div class="citation-block"><div class="citation-heading"><h3>Citation draft</h3><button id="copy-citation" type="button">Copy BibTeX</button></div><pre id="citation">@misc{shec3r2026,
+    <section class="section container citation-section" id="citation-section" aria-labelledby="citation-title">
+        <div class="citation-block"><div class="citation-heading"><h2 id="citation-title">Citation draft</h2><button id="copy-citation" type="button">Copy BibTeX</button></div><pre id="citation">@misc{shec3r2026,
   title = {SHEC3R: A Robot-Grounded Neural Initializer
            for Stationary Eye-to-Hand Calibration},
   author = {Anonymous},
   year = {2026},
   note = {Manuscript under review}
 }</pre><p class="citation-note">Author placeholder; update with the public preprint metadata before citing.</p><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p></div>
-      </div>
     </section>
   </main>
   <footer class="container"><span>SHEC3R · Research project</span><span>Manuscript under review · 2026</span></footer>
