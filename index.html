@@ -4,26 +4,40 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="SHEC3R: robot-grounded neural initialization for stationary eye-to-hand calibration, with RoboEyeCalib and optional differentiable-rendering refinement.">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#142435">
   <meta property="og:title" content="SHEC3R — Stationary Eye-to-Hand Calibration">
   <meta property="og:description" content="Grounding visual geometry in the robot base frame. A robot-grounded neural initializer and the RoboEyeCalib benchmark.">
   <meta property="og:type" content="website">
   <title>SHEC3R | Stationary Eye-to-Hand Calibration</title>
-  <link rel="icon" href="assets/images/favicon.svg?v=20261013b" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20261013b">
-  <script defer src="script.js"></script>
+  <link rel="icon" href="assets/images/favicon.svg?v=20261013c" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20261013c">
+  <link rel="preload" href="assets/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
+  <script defer src="script.js?v=20261013c"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <a class="wordmark" href="#">SHEC3R</a>
-    <nav aria-label="Main navigation">
-      <a href="#overview">Overview</a><a href="#method">Method</a><a href="#results">Results</a><a href="#dataset">Dataset</a><a href="#citation-section">Citation</a>
-    </nav>
+    <nav aria-label="Quick links"><a href="#article-title">Paper</a><a href="#video">Video</a></nav>
   </header>
   <main id="main">
-    <section class="hero container">
-      <h1><span class="project-name">SHEC3R</span><span class="paper-title">A Robot-Grounded Neural Initializer for<br class="desktop-break"> Stationary Eye-to-Hand Calibration</span></h1>
+    <section class="cover" aria-label="SHEC3R research project">
+      <div class="cover-images" aria-hidden="true">
+        <img src="assets/images/real_franka.png" alt="" fetchpriority="high">
+        <img src="assets/images/real_airbot.png" alt="">
+        <img src="assets/images/real_ur5e.png" alt="">
+      </div>
+      <div class="cover-shade"></div>
+      <div class="cover-title"><p class="cover-wordmark">SHEC3R</p><p class="cover-subtitle">A Robot-Grounded Neural Initializer<br>for Stationary Eye-to-Hand Calibration</p></div>
+      <a class="cover-explore" href="#article-title">Explore the paper <span aria-hidden="true">↓</span></a>
+    </section>
+    <div class="reading-layout">
+      <aside class="outline"><nav aria-label="Article contents">
+        <a href="#article-title">Paper</a><a href="#overview">Overview</a><a href="#video">Video</a><a href="#method">Method</a><a href="#results">Results</a><a href="#dataset">RoboEyeCalib</a><a href="#citation-section">Citation</a>
+      </nav></aside>
+      <div class="article">
+      <header class="title-block" id="article-title">
+      <h1>SHEC3R: A Robot-Grounded Neural Initializer for Stationary Eye-to-Hand Calibration</h1>
       <p class="authors">Anonymous</p>
       <p class="submission-status">Manuscript under review · Submitted to ICRA 2027</p>
       <p class="hero-description">From RGB observations and robot masks to a shared camera–base transform and a dense 3D reconstruction, in a single forward pass.</p>
@@ -37,13 +51,8 @@
         <img src="assets/images/real-reconstruction.png" alt="Real-world RGB observations and reconstructed point clouds for several robot arms." fetchpriority="high">
         <figcaption>Real-world observations → reconstruction in the robot base frame.</figcaption>
       </figure>
-      <div class="highlights">
-        <div><strong>One pass</strong><span>Neural initialization</span></div>
-        <div><strong>86.0<span>%</span></strong><span>Real-scene S@5° after refinement</span></div>
-        <div><strong>2.83<span>M</span></strong><span>Synthetic dataset frames</span></div>
-        <div><strong>883</strong><span>Real scenes in RoboEyeCalib</span></div>
-      </div>
-    </section>
+      </header>
+
 
     <section class="section container overview" id="overview">
       <div class="section-heading"><h2>Overview</h2></div>
@@ -57,7 +66,7 @@
     <section class="section video-section" id="video">
       <div class="container">
         <div class="section-heading"><h2>Video</h2></div>
-        <video controls playsinline preload="metadata" poster="assets/images/video-poster-arxiv.jpg" aria-label="SHEC3R project presentation video">
+        <video controls playsinline preload="none" poster="assets/images/video-poster-arxiv.jpg" aria-label="SHEC3R project presentation video">
           <source src="assets/videos/SHEC3R_video_v4_arxiv.mp4" type="video/mp4">
           Your browser does not support embedded video. <a href="assets/videos/SHEC3R_video_v4_arxiv.mp4">Download the video</a>.
         </video>
@@ -82,6 +91,15 @@
     <section class="section results-section" id="results">
       <div class="container">
         <div class="section-heading"><h2>Results</h2><p class="section-intro">Evaluation on the same scenes with a shared differentiable-rendering stage, varying only the initializer.</p></div>
+        <figure class="results-chart" aria-labelledby="chart-title">
+          <div class="chart-header"><h3 id="chart-title">Simulation · 400 scenes</h3><div class="cohort-switch" role="group" aria-label="Evaluation split"><button type="button" data-split="sim" aria-pressed="true">Simulation</button><button type="button" data-split="real" aria-pressed="false">Real</button></div></div>
+          <div class="success-bars" id="success-bars">
+            <div class="bar-row"><span class="bar-name">EasyHeC</span><div class="bar-track" aria-hidden="true"><div class="bar-fill" style="--value:25.2%"></div></div><span class="bar-value">25.2%</span></div>
+            <div class="bar-row"><span class="bar-name">EasyHeC++</span><div class="bar-track" aria-hidden="true"><div class="bar-fill" style="--value:8%"></div></div><span class="bar-value">8.0%</span></div>
+            <div class="bar-row is-ours"><span class="bar-name">SHEC3R</span><div class="bar-track" aria-hidden="true"><div class="bar-fill" style="--value:80.2%"></div></div><span class="bar-value">80.2%</span></div>
+          </div>
+          <figcaption>Percentage of scenes below 5° final rotation error, after the same DR refinement.</figcaption>
+        </figure>
         <div class="table-scroll" tabindex="0" role="region" aria-label="Calibration results; scroll horizontally on small screens">
           <table>
             <caption>Final rotation success rate and median rotation error after the shared refinement stage.</caption>
@@ -117,7 +135,13 @@
   note = {Manuscript under review}
 }</pre><p class="citation-note">Author placeholder; update with the public preprint metadata before citing.</p><p id="copy-status" class="copy-status" role="status" aria-live="polite"></p></div>
     </section>
+      </div>
+    </div>
   </main>
+  <dialog id="figure-dialog" aria-labelledby="figure-dialog-title">
+    <div class="dialog-heading"><h2 id="figure-dialog-title">Figure</h2><button type="button" id="close-figure" aria-label="Close figure">Close ×</button></div>
+    <img id="expanded-figure" alt="">
+  </dialog>
   <footer class="container"><span>SHEC3R · Research project</span><span>Manuscript under review · 2026</span></footer>
 </body>
 </html>

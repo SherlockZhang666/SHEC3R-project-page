@@ -57,3 +57,9 @@ git push
 Text and numbers follow the supplied ICRA 2027 manuscript. Headline S@5° values (80.2% simulation / 86.0% real) are **after optional refinement**, with 400 and 86 evaluation scenes, respectively. The 883 real scenes describe the full dataset, not the held-out evaluation split. The initializer uses RGB and robot masks; metric scaling uses a depth frame; optional DR refinement additionally needs meshes and joint readings.
 
 The paper PDF is copied from the local unstamped `main_submit.pdf`, not the PaperPlaza-stamped review copy. No LaTeX source, review history, private notes, or credentials are included here. No open-source license is assigned to the research assets by this website repository.
+
+## Presentation
+
+The page uses a photographic opening with original RoboEyeCalib capture images, Source Serif 4 reading typography, a desktop article outline, clickable paper figures, and a Simulation/Real success-rate comparison. All plotted values come from the manuscript and use final errors after DR refinement. The complete arXiv-version video remains linked unchanged.
+
+Source Serif 4 is self-hosted under the SIL Open Font License; see `assets/fonts/OFL.txt`. No runtime network request is needed for fonts.
