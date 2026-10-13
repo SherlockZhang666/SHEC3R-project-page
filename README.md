@@ -26,7 +26,7 @@ All asset paths are relative so the site works under a project subdirectory. `.n
 - `styles.css`: desktop and mobile layout.
 - `script.js`: set `resources.arxiv` and `resources.code` to the public URLs when available.
 - `assets/papers/SHEC3R.pdf`: replace the unstamped anonymous manuscript with your author-restored public PDF.
-- `assets/videos/SHEC3R_ICRA.mp4`: supplied supplementary video. Its original anonymous submission title remains; replace with a public version when ready.
+- `assets/videos/SHEC3R_video_v4_arxiv.mp4`: supplied arXiv-version project video (1080p, approximately 2 min 53 s).
 - `assets/images/`: original figures from the manuscript, plus a video poster.
 
 Update the BibTeX after arXiv announces the paper, including the real author list, eprint, archivePrefix, primaryClass, and URL. Do not list ICRA 2027 as an accepted publication before acceptance.
