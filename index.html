@@ -10,7 +10,7 @@
   <meta property="og:type" content="website">
   <title>SHEC3R | Stationary Eye-to-Hand Calibration</title>
   <link rel="icon" href="assets/images/favicon.svg?v=20261013c" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20261013c">
+  <link rel="stylesheet" href="styles.css?v=20261014a">
   <link rel="preload" href="assets/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
   <script defer src="script.js?v=20261013c"></script>
 </head>
@@ -47,10 +47,6 @@
         <span class="pill pending" id="arxiv-link" aria-label="arXiv preprint pending">arXiv <small>pending</small></span>
         <span class="pill pending" id="code-link" aria-label="Code Coming Soon">Code <small>Coming Soon</small></span>
       </div>
-      <figure class="hero-figure">
-        <img src="assets/images/real-reconstruction.png" alt="Real-world RGB observations and reconstructed point clouds for several robot arms." fetchpriority="high">
-        <figcaption>Real-world observations → reconstruction in the robot base frame.</figcaption>
-      </figure>
       </header>
 
 
@@ -116,6 +112,11 @@
         <p class="table-note">S@5° is the percentage of scenes with final rotation error below 5°. These are refined results, not feed-forward-only results. Figures reproduced from Table I of the manuscript.</p>
         <figure class="paper-figure result-figure"><a href="assets/images/refinement-ablation.png" target="_blank" rel="noopener" aria-label="Open the training and refinement ablation figure"><img src="assets/images/refinement-ablation.png" alt="Rotation and translation error over training epochs, comparing synthetic pretraining plus real fine-tuning against real-only training, before and after DR refinement." loading="lazy"></a><figcaption>Synthetic pretraining and real-world fine-tuning improve the learned initialization. Dashed curves show the errors after DR refinement.</figcaption></figure>
         <p class="results-context">The manuscript also evaluates an external platform: the Flexiv Rizon 4 subset of RH20T. On the combined real evaluation set of 647 scenes, SHEC3R reaches 90.3% S@5° after refinement. See the paper for split definitions and limitations.</p>
+        <h3 class="reconstruction-heading">Robot-frame reconstruction</h3>
+        <figure class="paper-figure reconstruction-figure">
+          <a href="assets/images/real-reconstruction.png" target="_blank" rel="noopener" aria-label="Open the robot-frame reconstruction figure"><img src="assets/images/real-reconstruction.png" alt="Real-world RGB observations and reconstructed point clouds for several robot arms." loading="lazy"></a>
+          <figcaption>Real-world RGB observations (top) and reconstructed point clouds in the robot base frame (bottom). Click the figure to enlarge.</figcaption>
+        </figure>
       </div>
     </section>
 
