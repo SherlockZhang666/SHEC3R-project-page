@@ -19,7 +19,7 @@ document.getElementById("copy-citation").addEventListener("click", async () => {
   const status = document.getElementById("copy-status");
   try {
     await navigator.clipboard.writeText(citation.textContent);
-    status.textContent = "BibTeX copied. Update the author and preprint metadata before use.";
+    status.textContent = "BibTeX copied. Update the preprint metadata before use.";
   } catch {
     const range = document.createRange();
     range.selectNodeContents(citation);

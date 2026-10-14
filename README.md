@@ -2,7 +2,7 @@
 
 Static project website for **SHEC3R: A Robot-Grounded Neural Initializer for Stationary Eye-to-Hand Calibration**.
 
-The manuscript is under review. The author is currently **Anonymous** by request. Research code and the RoboEyeCalib dataset are forthcoming; this repository contains the website only.
+The manuscript is under review. The project page displays the author list and affiliations supplied by the authors. Research code and the RoboEyeCalib dataset are forthcoming; this repository contains the website only.
 
 ## Preview
 
@@ -29,11 +29,11 @@ All asset paths are relative so the site works under a project subdirectory. `.n
 - `assets/videos/SHEC3R_video_v4_arxiv.mp4`: supplied arXiv-version project video (1080p, approximately 2 min 53 s).
 - `assets/images/`: original figures from the manuscript, plus a video poster.
 
-Update the BibTeX after arXiv announces the paper, including the real author list, eprint, archivePrefix, primaryClass, and URL. Do not list ICRA 2027 as an accepted publication before acceptance.
+Update the BibTeX after arXiv announces the paper, including eprint, archivePrefix, primaryClass, and URL. Do not list ICRA 2027 as an accepted publication before acceptance.
 
 ## arXiv checklist
 
-1. Confirm the public version and author order with all co-authors. Restore names, affiliations, and acknowledgments in a separate copy of the manuscript. The current Anonymous placeholder is a website draft, not final arXiv author metadata.
+1. Confirm the public version and author order with all co-authors. Restore names, affiliations, and acknowledgments in a separate copy of the manuscript. The project page already includes the supplied author list; the linked manuscript remains the anonymous submission PDF.
 2. Register/sign in at <https://arxiv.org/> and verify your email. A first submission to `cs.RO` may require endorsement: <https://info.arxiv.org/help/endorsement.html>.
 3. Prepare a minimal source ZIP. Include `main.tex`, its referenced `sections/` and figures, `ieeeconf.cls`, the required bibliography (`main.bbl` and/or `refs.bib` plus `IEEEtran.bst`), and any referenced local files. Remove `.git`, internal notes, backups, comments containing private discussion, build logs, auxiliary files, and unused figures. Do not include this website, PPTX, or MP4 in the TeX upload.
 4. Use **Start New Submission** and choose a suitable category; `cs.RO` is the natural primary category for this calibration paper. Select a license after considering co-author, funder, and publisher requirements; each version's chosen license is irrevocable. Official license guidance: <https://info.arxiv.org/help/license/index.html>.
