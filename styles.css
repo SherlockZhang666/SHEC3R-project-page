@@ -99,6 +99,9 @@ tbody th small { display: block; font-weight: 400; color: var(--muted); font-siz
 .result-figure { max-width: 740px; margin: auto; }
 .results-context { font-size: 17px; color: #4c5e69; margin: 22px 0 0; }
 .reconstruction-heading { font-size: 25px; font-weight: 500; line-height: 1.3; margin: 38px 0 20px; }
+.reconstruction-figure a { text-decoration: none; }
+.reconstruction-labels { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; margin-top: 14px; text-align: center; color: var(--ink); font: 500 clamp(10px, 1.2vw, 13px)/1.4 var(--sans); }
+.reconstruction-labels span { overflow-wrap: anywhere; }
 .dataset-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 27px 0 30px; }
 .dataset-stats > div { text-align: center; padding: 20px 12px 17px; border: 1px solid #d9e2e8; border-radius: 7px; background: #fff8; }
 .dataset-stats strong { display: block; font-size: 35px; font-weight: 500; color: var(--accent); line-height: 1.2; }

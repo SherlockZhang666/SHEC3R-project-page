@@ -10,7 +10,7 @@
   <meta property="og:type" content="website">
   <title>SHEC3R | Stationary Eye-to-Hand Calibration</title>
   <link rel="icon" href="assets/images/favicon.svg?v=20261013c" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20261014a">
+  <link rel="stylesheet" href="styles.css?v=20261014b">
   <link rel="preload" href="assets/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
   <script defer src="script.js?v=20261013c"></script>
 </head>
@@ -114,7 +114,10 @@
         <p class="results-context">The manuscript also evaluates an external platform: the Flexiv Rizon 4 subset of RH20T. On the combined real evaluation set of 647 scenes, SHEC3R reaches 90.3% S@5° after refinement. See the paper for split definitions and limitations.</p>
         <h3 class="reconstruction-heading">Robot-frame reconstruction</h3>
         <figure class="paper-figure reconstruction-figure">
-          <a href="assets/images/real-reconstruction.png" target="_blank" rel="noopener" aria-label="Open the robot-frame reconstruction figure"><img src="assets/images/real-reconstruction.png" alt="Real-world RGB observations and reconstructed point clouds for several robot arms." loading="lazy"></a>
+          <a href="assets/images/real-reconstruction.png" target="_blank" rel="noopener" aria-label="Open the robot-frame reconstruction figure">
+            <img src="assets/images/real-reconstruction.png" alt="Real-world RGB observations and reconstructed point clouds. Left to right: Franka, AIRBOT Play, OpenManipulatorX, SO-101, UR5e, Rizon 4." loading="lazy">
+            <div class="reconstruction-labels"><span>Franka</span><span>AIRBOT Play</span><span>Open<wbr>ManipulatorX</span><span>SO-101</span><span>UR5e</span><span>Rizon 4</span></div>
+          </a>
           <figcaption>Real-world RGB observations (top) and reconstructed point clouds in the robot base frame (bottom). Click the figure to enlarge.</figcaption>
         </figure>
       </div>
